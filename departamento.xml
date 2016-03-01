@@ -1,0 +1,40 @@
+	<openerp>
+	<data>
+		<record model="ir.actions.act_window" id="departamentos_list_action">
+			<field name="name">Empresa</field>
+			<field name="res_model">empresa.departamentos</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.ui.view" id="alumnos_form_view">
+			<field name="name">departamentos.form</field>
+			<field name="model">empresa.departamentos</field>
+			<field name="arch" type="xml">
+				<form string="Departamentos">
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="parent_id" />	
+							<field name="manager_id" />	
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="departamentos_tree_view">
+				<field name="name">departamentos.tree</field>
+				<field name="model">empresa.departamentos</field>
+				<field name="arch" type="xml">
+				<tree string="Departamentos">
+							<field name="name" />
+							<field name="parent_id" />	
+							<field name="manager_id" />	
+				</tree>
+				</field>
+		</record>
+		<menuitem id="top_Empresa_menu" name="Empresa" />
+		<menuitem id="left_Empresa_menu" name="Empresa"
+		parent="top_Empresa_menu" />
+		<menuitem id="departamentos_menu" name="Departamentos" parent="left_Empresa_menu"
+		action="departamentos_list_action" />
+	</data>
+	</openerp>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+       <record model="ir.actions.act_window" id="empleados_list_action">
+			<field name="name">Empresa</field>
+			<field name="res_model">empresa.telas</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.ui.view" id="alumnos_form_view">
+			<field name="name">telas.form</field>
+			<field name="model">empresa.telas</field>
+			<field name="arch" type="xml">
+			 <sheet>
+				 <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Employee's Name"/>
+                            </h1>
+                        </div>
+			 <notebook>
+           	 <page name="public" >
+               	<group>
+           			<field name="name"/>
+       				<field name="identification_id"/>
+					<field name="procedencia"/>
+               	</group>
+           		<field name="notes" placeholder="Otra información ..." colspan="4"/>
+               </page>
+             </notebook>
+			 </sheet>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="empleados_tree_view">
+				<field name="name">telas.tree</field>
+				<field name="model">empresa.telas</field>
+				<field name="arch" type="xml">
+				<tree string="Formulario Telas">
+							<field name="name" />
+							<field name="department_id" />
+				</tree>
+				</field>
+		</record>
+		<menuitem id="top_Empresa_menu" name="Empresa" />
+		<menuitem id="left_Empresa_menu" name="Empresa"
+		parent="top_Empresa_menu" />
+		<menuitem id="proveedores_menu" name="Empleados" parent="left_Empresa_menu"
+		action="empleados_list_action" />
+	</data>
+</openerp>
